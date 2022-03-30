@@ -65,7 +65,7 @@ struct InicioSesionView: View {
                         Text("ejemplo@gmail.com").font(.caption).accentColor(.gray)
                     }
                     
-                    TextField("", text: $email)
+                    TextField("", text: $email).foregroundColor(.white)
                 }
                 
                 Divider().frame(height: 1, alignment: .center).background(Color("Dark-Cian")).padding(.bottom)
@@ -79,7 +79,7 @@ struct InicioSesionView: View {
                         Text("Escribe tu contraseña").font(.caption).foregroundColor(.gray)
                     }
                     
-                    SecureField("", text: $password)
+                    SecureField("", text: $password).foregroundColor(.white)
                 }
                 
                 Divider().frame(height: 1, alignment: .center).background(Color("Dark-Cian")).padding(.bottom)
@@ -171,7 +171,7 @@ struct RegistroView: View {
                         Text("ejemplo@gmail.com").font(.caption).accentColor(.gray)
                     }
 
-                    TextField("", text: $email)
+                    TextField("", text: $email).foregroundColor(.white)
                 }
 
                 Divider().frame(height: 1, alignment: .center).background(Color("Dark-Cian")).padding(.bottom)
@@ -185,7 +185,7 @@ struct RegistroView: View {
                         Text("Escribe tu contraseña").font(.caption).foregroundColor(.gray)
                     }
 
-                    SecureField("", text: $password)
+                    SecureField("", text: $password).foregroundColor(.white)
                 }
                 
                 Divider().frame(height: 1, alignment: .center).background(Color("Dark-Cian")).padding(.bottom)
@@ -197,7 +197,7 @@ struct RegistroView: View {
                         Text("Vuelve a escribir tu contraseña").font(.caption).foregroundColor(.gray)
                     }
 
-                    SecureField("", text: $confirmPassword)
+                    SecureField("", text: $confirmPassword).foregroundColor(.white)
                 }
 
                     Divider()
