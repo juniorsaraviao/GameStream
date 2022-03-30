@@ -9,15 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            Spacer()
-            Color(red: 22/255, green: 31/255, blue: 59/255, opacity: 1.0).ignoresSafeArea()
-            
-            VStack {
-                Image("appLogo").resizable().aspectRatio(contentMode: .fit).frame(width: 250).padding(.bottom, 42)
+        NavigationView {
+            ZStack {
+                Spacer()
+                Color(red: 22/255, green: 31/255, blue: 59/255, opacity: 1.0).ignoresSafeArea()
                 
-                InicioYRegistroView()
-            }
+                VStack {
+                    Image("appLogo").resizable().aspectRatio(contentMode: .fit).frame(width: 250).padding(.bottom, 42)
+                    
+                    InicioYRegistroView()
+                }
+            }.navigationBarHidden(true)
         }
     }
 }
@@ -54,6 +56,7 @@ struct InicioYRegistroView: View {
 struct InicioSesionView: View {
     @State var email = ""
     @State var password = ""
+    @State var isHomeActive = false
     
     var body: some View {
         ScrollView {
@@ -125,7 +128,16 @@ struct InicioSesionView: View {
                 }
                 
             }.padding(.horizontal, 77.0)
+        
+            NavigationLink(destination: Home(), isActive: $isHomeActive, label: {
+                EmptyView()
+            })
         }
+    }
+    
+    func login() {
+        print("Logging in")
+        isHomeActive = true
     }
 }
 
@@ -224,7 +236,7 @@ struct RegistroView: View {
 
                 HStack {
 
-                    Button(action: login) {
+                    Button(action: signUp) {
                         Text("Facebook")
                             .fontWeight(.bold)
                             .foregroundColor(.white)
@@ -233,7 +245,7 @@ struct RegistroView: View {
                             .background(RoundedRectangle(cornerRadius: 10.0).foregroundColor(Color("blueBot")))
                     }
 
-                    Button(action: login) {
+                    Button(action: signUp) {
                         Text("Twitter")
                             .fontWeight(.bold)
                             .foregroundColor(.white)
@@ -254,10 +266,6 @@ struct ContentView_Previews: PreviewProvider {
         
         ContentView()
     }
-}
-
-func login() {
-    print("Logging in")
 }
 
 func takePhoto() {
