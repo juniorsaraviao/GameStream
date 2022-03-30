@@ -130,14 +130,127 @@ struct InicioSesionView: View {
 }
 
 struct RegistroView: View {
+    @State var email = ""
+    @State var password = ""
+    @State var confirmPassword = ""
+    
     var body: some View {
-        Text("Vista de Registro")
+        ScrollView {
+            
+            VStack(alignment: .center) {
+                Text("Elije una foto de perfil")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                
+                Text("Puedes cambiar o elegirla más adelante")
+                    .font(.footnote)
+                    .fontWeight(.light)
+                    .foregroundColor(.gray)
+                    .padding(.bottom)
+                
+                Button(action: takePhoto, label: {
+                    ZStack {
+                        Image("perfilEjemplo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 80, height: 80)
+                        
+                        Image(systemName: "camera")
+                            .foregroundColor(.white)
+                    }
+                }).padding(.bottom)
+            }
+            
+            VStack(alignment: .leading) {
+                
+                VStack(alignment: .leading) {
+                Text("Corre Electrónico*").foregroundColor(Color("Dark-Cian"))
+
+                ZStack(alignment: .leading) {
+                    if email.isEmpty {
+                        Text("ejemplo@gmail.com").font(.caption).accentColor(.gray)
+                    }
+
+                    TextField("", text: $email)
+                }
+
+                Divider().frame(height: 1, alignment: .center).background(Color("Dark-Cian")).padding(.bottom)
+
+
+
+                Text("Contraseña*").foregroundColor(.white)
+
+                ZStack(alignment: .leading) {
+                    if password.isEmpty {
+                        Text("Escribe tu contraseña").font(.caption).foregroundColor(.gray)
+                    }
+
+                    SecureField("", text: $password)
+                }
+                
+                Divider().frame(height: 1, alignment: .center).background(Color("Dark-Cian")).padding(.bottom)
+                
+                Text("Confirmar contraseña*").foregroundColor(.white)
+
+                ZStack(alignment: .leading) {
+                    if password.isEmpty {
+                        Text("Vuelve a escribir tu contraseña").font(.caption).foregroundColor(.gray)
+                    }
+
+                    SecureField("", text: $confirmPassword)
+                }
+
+                    Divider()
+                        .frame(width:300, height: 1, alignment: .center)
+                        .background(Color("Dark-Cian"))
+                        .padding(.bottom)
+                }
+
+
+                Button(action: signUp) {
+                    Text("REGÍSTRATE")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
+                        .overlay(RoundedRectangle(cornerRadius: 6.0).stroke(Color("Dark-Cian"), lineWidth: 1.0).shadow(color: .white, radius: 6))
+                }.padding(.top, 30)
+
+                Text("Inicia sesión con redes sociales")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.top, 40)
+                    .padding(.bottom, 25)
+
+                HStack {
+
+                    Button(action: login) {
+                        Text("Facebook")
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity/2, alignment: .center)
+                            .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
+                            .background(RoundedRectangle(cornerRadius: 10.0).foregroundColor(Color("blueBot")))
+                    }
+
+                    Button(action: login) {
+                        Text("Twitter")
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity/2, alignment: .center)
+                            .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
+                            .background(RoundedRectangle(cornerRadius: 10.0).foregroundColor(Color("blueBot")))
+                    }
+                }
+
+            }.padding(.horizontal, 77.0)
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        Image("pantalla1").resizable()
+        Image("pantalla2").resizable()
         
         ContentView()
     }
@@ -145,4 +258,12 @@ struct ContentView_Previews: PreviewProvider {
 
 func login() {
     print("Logging in")
+}
+
+func takePhoto() {
+    print("Take photo")
+}
+
+func signUp() {
+    print("Sign up")
 }
