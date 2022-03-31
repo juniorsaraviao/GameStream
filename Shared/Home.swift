@@ -57,16 +57,49 @@ struct Home: View {
 
 
 struct HomeScreen : View {
+    @State var lookupText = ""
+    
     var body: some View {
         ZStack {
             Color("marine").ignoresSafeArea()
             
             VStack {
-                Text("Welcome!")
+                
+                Image("appLogo").resizable().aspectRatio(contentMode: .fit).frame(width: 250).padding(.horizontal, 11)
+                
+                HStack {
+                    Button(action: lookUp) {
+                        Image(systemName: "magnifyingglass")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                            .foregroundColor(lookupText.isEmpty ? .yellow : Color("Dark-Cian"))
+                    }
+                    
+                    ZStack(alignment: .leading) {
+                        
+                        if lookupText.isEmpty {
+                            Text("Buscar un video")
+                                .foregroundColor(Color(red: 174/255, green: 177/255, blue: 185/255, opacity: 1))
+                                .font(.system(size: 20))
+                        }
+                        
+                        TextField("", text: $lookupText)
+                            .foregroundColor(.white)
+                            .font(.system(size: 20))
+                    }
+                }
+                .padding([.top, .leading, .bottom], 11)
+                .background(Color("blueBot"))
+                .clipShape(Capsule())
+                
             }.padding(.horizontal, 18)
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
+    }
+    
+    func lookUp() {
+        print("Look up \(lookupText)")
     }
 }
 
