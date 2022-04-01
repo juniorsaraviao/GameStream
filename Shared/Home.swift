@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct Home: View {
     @State var selectedTab: Int = 2
@@ -92,6 +93,8 @@ struct HomeScreen : View {
                 .background(Color("blueBot"))
                 .clipShape(Capsule())
                 
+                SubModuleHome()
+                
             }.padding(.horizontal, 18)
         }
         .navigationBarHidden(true)
@@ -100,6 +103,55 @@ struct HomeScreen : View {
     
     func lookUp() {
         print("Look up \(lookupText)")
+    }
+}
+
+struct SubModuleHome : View {
+    @State var url = "https://cdn.cloudflare.steamstatic.com/steam/apps/256658589/movie480.mp4"
+        @State var isPlayerActive = false
+        let urlVideos:[String] = ["https://cdn.cloudflare.steamstatic.com/steam/apps/256658589/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256671638/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256720061/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256814567/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256705156/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256801252/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256757119/movie480.mp4"]
+    
+    var body: some View {
+        
+        VStack {
+            Text("LOS MÁS POPULARES")
+                .font(.title3)
+                .foregroundColor(.white)
+                .bold()
+                .frame(minWidth: 0, maxWidth: .infinity,alignment: .leading)
+                .padding(.top)
+            
+            ZStack {
+                
+                Button(action: {
+                    url = urlVideos[0]
+                    print("URL: \(url)")
+                    isPlayerActive = true
+                }) {
+                    VStack(spacing: 0) {
+                        Image("13-swiftuiapps-2105-thewitcher")
+                            .resizable()
+                            .scaledToFit()
+                        Text("The Witcher 3")
+                            .frame(minWidth: 0, maxWidth: .infinity,alignment: .leading)
+                            .background(Color("blueBot"))
+                            .font(.headline)
+                    }
+                }
+                
+                Image(systemName: "play.circle.fill")
+                    .resizable()
+                    .foregroundColor(.white)
+                    .frame(width: 42, height: 42)
+                
+            }.frame(minWidth: 0, maxWidth: .infinity,alignment: .center)
+                .padding(.vertical)
+        }
+        
+        NavigationLink(destination: VideoPlayer(player: AVPlayer(url: URL(string: url)!)).frame(width: 400, height: 300), isActive: $isPlayerActive) {
+            EmptyView()
+        }
+        
     }
 }
 
