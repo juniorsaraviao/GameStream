@@ -93,7 +93,9 @@ struct HomeScreen : View {
                 .background(Color("blueBot"))
                 .clipShape(Capsule())
                 
-                SubModuleHome()
+                ScrollView(showsIndicators: false) {
+                    SubModuleHome()
+                }
                 
             }.padding(.horizontal, 18)
         }
