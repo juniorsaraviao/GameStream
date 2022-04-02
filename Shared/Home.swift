@@ -240,6 +240,72 @@ struct SubModuleHome : View {
                     }
                 }
             }
+            
+            
+            Text("VIDEO QUE PODRÍAN GUSTARTE")
+                .font(.title3)
+                .foregroundColor(.white)
+                .bold()
+                .frame(minWidth: 0, maxWidth: .infinity,alignment: .leading)
+                .padding(.top, 25)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    Button(action: {
+                        url = urlVideos[4]
+                        print("URL: \(url)")
+                        isPlayerActive = true
+                    }) {
+                        ZStack {
+                            Image("13-swiftuiapps-2105-spiderman")
+                                .resizable()
+                                .scaledToFill()
+                            .frame(width: 240, height: 135)
+                            
+                            Image(systemName: "play.circle.fill")
+                                .resizable()
+                                .foregroundColor(.white)
+                                .frame(width: 42, height: 42)
+                        }
+                    }
+                    
+                    Button(action: {
+                        url = urlVideos[5]
+                        print("URL: \(url)")
+                        isPlayerActive = true
+                    }) {
+                        ZStack {
+                            Image("13-swiftuiapps-2105-rectangle6")
+                                .resizable()
+                                .scaledToFill()
+                            .frame(width: 240, height: 135)
+                            
+                            Image(systemName: "play.circle.fill")
+                                .resizable()
+                                .foregroundColor(.white)
+                                .frame(width: 42, height: 42)
+                        }
+                    }
+                    
+                    Button(action: {
+                        url = urlVideos[6]
+                        print("URL: \(url)")
+                        isPlayerActive = true
+                    }) {
+                        ZStack {
+                            Image("13-swiftuiapps-2105-titanfall2")
+                                .resizable()
+                                .scaledToFill()
+                            .frame(width: 240, height: 135)
+                            
+                            Image(systemName: "play.circle.fill")
+                                .resizable()
+                                .foregroundColor(.white)
+                                .frame(width: 42, height: 42)
+                        }
+                    }
+                }
+            }
         }
         
         NavigationLink(destination: VideoPlayer(player: AVPlayer(url: URL(string: url)!)).frame(width: 400, height: 300), isActive: $isPlayerActive) {
