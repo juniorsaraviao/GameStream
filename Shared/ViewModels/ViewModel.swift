@@ -5,16 +5,39 @@
 //  Created by Junior Eduardo Saravia Oria on 1/04/22.
 //
 
-import SwiftUI
+import Foundation
 
-struct ViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class ViewModel: ObservableObject {
+    
+    @Published var gamesInfo = [Game]()
+    
+    init() {
+        
+        let url = URL(string: "https://gamestream-api.herokuapp.com/api/games")!
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            do {
+                if let jsonData = data {
+                    print("Json size: \(jsonData)")
+                    
+                    let decodeData = try
+                        JSONDecoder().decode([Game].self, from: jsonData)
+                    
+                    DispatchQueue.main.async {
+                        self.gamesInfo.append(contentsOf: decodeData)
+                    }
+                }
+                
+            } catch {
+                print("Error: \(error)")
+            }
+            
+        }.resume()
+        
     }
-}
-
-struct ViewModel_Previews: PreviewProvider {
-    static var previews: some View {
-        ViewModel()
-    }
+    
 }
