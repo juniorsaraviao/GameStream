@@ -11,21 +11,21 @@ struct Games: Codable {
     let games: [Game]
 }
 
-struct Game: Codable {
+struct Game: Codable, Hashable {
     let title, studio, contentRaiting, publicationYear: String
-    let welcomeDescription: String
+    let description: String
     let platforms, tags: [String]
     let videosUrls: VideosUrl
     let galleryImages: [String]
 
     enum CodingKeys: String, CodingKey {
         case title, studio, contentRaiting, publicationYear
-        case welcomeDescription = "description"
+        case description = "description"
         case platforms, tags, videosUrls, galleryImages
     }
 }
 
-struct VideosUrl: Codable {
+struct VideosUrl: Codable, Hashable {
     let mobile, tablet: String
 }
 

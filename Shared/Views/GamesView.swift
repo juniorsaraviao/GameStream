@@ -11,11 +11,67 @@ struct GamesView: View {
     
     @ObservedObject var allVideoGames = ViewModel()
     
+    @State var gameViewIsActive: Bool = false
+    @State var url: String = ""
+    @State var title: String = ""
+    @State var studio: String = ""
+    @State var calification: String = ""
+    @State var publicationYear: String = ""
+    @State var description: String = ""
+    @State var tags: [String] = [String]()
+    @State var galleryImages: [String] = [String]()
+    
+    let gridShape = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
+    
     var body: some View {
-        Text("Games View")
-            .navigationBarHidden(true)
-            .navigationBarBackButtonHidden(true)
-            .onAppear(
+        ZStack {
+            Color("marine").ignoresSafeArea()
+            
+            VStack {
+                Text("Juegos")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .padding(EdgeInsets(top: 16, leading: 0, bottom: 64, trailing: 0))
+                
+                ScrollView {
+
+                    LazyVGrid(columns: gridShape, spacing: 8) {
+                        ForEach(allVideoGames.gamesInfo, id: \.self) {
+
+                            game in
+
+                            Button(action: {
+
+                                url = game.videosUrls.mobile
+                                title = game.title
+                                studio = game.studio
+                                calification = game.contentRaiting
+                                publicationYear = game.publicationYear
+                                description = game.description
+                                tags = game.tags
+                                galleryImages = game.galleryImages
+
+                                print("tap the game \(game.title)")
+
+                            }) {
+                                Text("\(game.title)")
+                            }
+
+                        }
+                    }
+
+                }
+                
+            }.padding(.horizontal, 6)
+            
+        }.navigationBarHidden(true)
+         .navigationBarBackButtonHidden(true)
+         .onAppear(
                 
                 perform: {
                     print("1st json element: \(allVideoGames.gamesInfo[0])")
