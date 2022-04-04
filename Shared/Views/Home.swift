@@ -58,7 +58,6 @@ struct Home: View {
 
 
 struct HomeScreen : View {
-    @State var lookupText = ""
     
     var body: some View {
         ZStack {
@@ -67,31 +66,6 @@ struct HomeScreen : View {
             VStack {
                 
                 Image("appLogo").resizable().aspectRatio(contentMode: .fit).frame(width: 250).padding(.horizontal, 11)
-                
-                HStack {
-                    Button(action: lookUp) {
-                        Image(systemName: "magnifyingglass")
-                            .resizable()
-                            .frame(width: 25, height: 25)
-                            .foregroundColor(lookupText.isEmpty ? .yellow : Color("Dark-Cian"))
-                    }
-                    
-                    ZStack(alignment: .leading) {
-                        
-                        if lookupText.isEmpty {
-                            Text("Buscar un video")
-                                .foregroundColor(Color(red: 174/255, green: 177/255, blue: 185/255, opacity: 1))
-                                .font(.system(size: 20))
-                        }
-                        
-                        TextField("", text: $lookupText)
-                            .foregroundColor(.white)
-                            .font(.system(size: 20))
-                    }
-                }
-                .padding([.top, .leading, .bottom], 11)
-                .background(Color("blueBot"))
-                .clipShape(Capsule())
                 
                 ScrollView(showsIndicators: false) {
                     SubModuleHome()
@@ -102,13 +76,11 @@ struct HomeScreen : View {
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
     }
-    
-    func lookUp() {
-        print("Look up \(lookupText)")
-    }
 }
 
 struct SubModuleHome : View {
+    @State var lookupText = ""
+    @State var isGameInfoEmpty = false
     @State var url = "https://cdn.cloudflare.steamstatic.com/steam/apps/256658589/movie480.mp4"
         @State var isPlayerActive = false
         let urlVideos:[String] = ["https://cdn.cloudflare.steamstatic.com/steam/apps/256658589/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256671638/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256720061/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256814567/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256705156/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256801252/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256757119/movie480.mp4"]
@@ -116,6 +88,37 @@ struct SubModuleHome : View {
     var body: some View {
         
         VStack {
+            
+            HStack {
+                Button(action: {
+                    watchGame(name: lookupText)
+                }) {
+                    Image(systemName: "magnifyingglass")
+                        .resizable()
+                        .frame(width: 25, height: 25)
+                        .foregroundColor(lookupText.isEmpty ? .yellow : Color("Dark-Cian"))
+                }.alert(isPresented: $isGameInfoEmpty) {
+                    Alert(title: Text("Error"), message: Text("No se encontró el juego"), dismissButton: .default(Text("Entendido")))
+                }
+                
+                ZStack(alignment: .leading) {
+                    
+                    if lookupText.isEmpty {
+                        Text("Buscar un video")
+                            .foregroundColor(Color(red: 174/255, green: 177/255, blue: 185/255, opacity: 1))
+                            .font(.system(size: 20))
+                    }
+                    
+                    TextField("", text: $lookupText)
+                        .foregroundColor(.white)
+                        .font(.system(size: 20))
+                }
+            }
+            .padding([.top, .leading, .bottom], 11)
+            .background(Color("blueBot"))
+            .clipShape(Capsule())
+            
+            
             Text("LOS MÁS POPULARES")
                 .font(.title3)
                 .foregroundColor(.white)
@@ -312,6 +315,11 @@ struct SubModuleHome : View {
             EmptyView()
         }
         
+    }
+    
+    func watchGame(name: String) {
+        print("Look up: \(name)")
+        isGameInfoEmpty = true
     }
 }
 
