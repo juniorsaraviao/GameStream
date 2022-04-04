@@ -58,6 +58,8 @@ struct GamesView: View {
                                 galleryImages = game.galleryImages
 
                                 print("tap the game \(game.title)")
+                                
+                                gameViewIsActive = true
 
                             }) {
                                 
@@ -82,6 +84,9 @@ struct GamesView: View {
                 }
                 
             }.padding(.horizontal, 6)
+            
+            NavigationLink<EmptyView, GameView>(isActive: $gameViewIsActive, destination: {GameView(url: url, title: title, studio: studio, calification: calification, publicationYear: publicationYear, description: description, tags: tags, galleryImages: galleryImages)}, label: { EmptyView() })
+            
             
         }.navigationBarHidden(true)
          .navigationBarBackButtonHidden(true)
