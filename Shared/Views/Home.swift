@@ -36,11 +36,11 @@ struct Home: View {
                     Text("Inicio")
                 }.tag(2)
             
-            Text("Favoritos")
+            FavoriteView()
                 .font(.system(size: 30, weight: .bold, design: .rounded))
                 .tabItem {
                     Image(systemName: "heart")
-                    Text("Home")
+                    Text("Favoritos")
                 }.tag(3)
         }.accentColor(.white)
         
