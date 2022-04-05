@@ -81,9 +81,18 @@ struct HomeScreen : View {
 struct SubModuleHome : View {
     @State var lookupText = ""
     @State var isGameInfoEmpty = false
-    @State var url = "https://cdn.cloudflare.steamstatic.com/steam/apps/256658589/movie480.mp4"
-        @State var isPlayerActive = false
-        let urlVideos:[String] = ["https://cdn.cloudflare.steamstatic.com/steam/apps/256658589/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256671638/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256720061/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256814567/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256705156/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256801252/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256757119/movie480.mp4"]
+    
+    @ObservedObject var foundGame = SearchGame()
+    @State var isGameViewActive = false
+    
+    @State var url: String = ""
+    @State var title: String = ""
+    @State var studio: String = ""
+    @State var calification: String = ""
+    @State var publicationYear: String = ""
+    @State var description: String = ""
+    @State var tags: [String] = [String]()
+    @State var galleryImages: [String] = [String]()
     
     var body: some View {
         
@@ -128,11 +137,7 @@ struct SubModuleHome : View {
             
             ZStack {
                 
-                Button(action: {
-                    url = urlVideos[0]
-                    print("URL: \(url)")
-                    isPlayerActive = true
-                }) {
+                Button(action: { watchGame(name: "The Witcher 3") }) {
                     VStack(spacing: 0) {
                         Image("13-swiftuiapps-2105-thewitcher")
                             .resizable()
@@ -209,33 +214,21 @@ struct SubModuleHome : View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    Button(action: {
-                        url = urlVideos[1]
-                        print("URL: \(url)")
-                        isPlayerActive = true
-                    }) {
+                    Button(action: {watchGame(name: "Crash Bandicoot")}) {
                         Image("13-swiftuiapps-2105-assassins_creed")
                             .resizable()
                             .scaledToFill()
                             .frame(width: 240, height: 135)
                     }
                     
-                    Button(action: {
-                        url = urlVideos[2]
-                        print("URL: \(url)")
-                        isPlayerActive = true
-                    }) {
+                    Button(action: {watchGame(name: "DEATH STRANDING")}) {
                         Image("13-swiftuiapps-2105-battkefield")
                             .resizable()
                             .scaledToFill()
                             .frame(width: 240, height: 135)
                     }
                     
-                    Button(action: {
-                        url = urlVideos[3]
-                        print("URL: \(url)")
-                        isPlayerActive = true
-                    }) {
+                    Button(action: {watchGame(name: "Abzu")}) {
                         Image("13-swiftuiapps-2105-dest")
                             .resizable()
                             .scaledToFill()
@@ -254,11 +247,7 @@ struct SubModuleHome : View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    Button(action: {
-                        url = urlVideos[4]
-                        print("URL: \(url)")
-                        isPlayerActive = true
-                    }) {
+                    Button(action: {watchGame(name: "Hades")}) {
                         ZStack {
                             Image("13-swiftuiapps-2105-spiderman")
                                 .resizable()
@@ -272,11 +261,7 @@ struct SubModuleHome : View {
                         }
                     }
                     
-                    Button(action: {
-                        url = urlVideos[5]
-                        print("URL: \(url)")
-                        isPlayerActive = true
-                    }) {
+                    Button(action: {watchGame(name: "Cuphead")}) {
                         ZStack {
                             Image("13-swiftuiapps-2105-rectangle6")
                                 .resizable()
@@ -290,11 +275,7 @@ struct SubModuleHome : View {
                         }
                     }
                     
-                    Button(action: {
-                        url = urlVideos[6]
-                        print("URL: \(url)")
-                        isPlayerActive = true
-                    }) {
+                    Button(action: {watchGame(name: "Grand Theft Auto V")}) {
                         ZStack {
                             Image("13-swiftuiapps-2105-titanfall2")
                                 .resizable()
@@ -311,15 +292,33 @@ struct SubModuleHome : View {
             }
         }
         
-        NavigationLink(destination: VideoPlayer(player: AVPlayer(url: URL(string: url)!)).frame(width: 400, height: 300), isActive: $isPlayerActive) {
+        NavigationLink(destination: GameView(url: url, title: title, studio: studio, calification: calification, publicationYear: publicationYear, description: description, tags: tags, galleryImages: galleryImages), isActive: $isGameViewActive) {
             EmptyView()
         }
         
     }
     
     func watchGame(name: String) {
-        print("Look up: \(name)")
-        isGameInfoEmpty = true
+        foundGame.search(gameName: name)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+            print("# of elements: \(foundGame.gamesInfo.count)")
+            
+            if foundGame.gamesInfo.count == 0 {
+                isGameInfoEmpty = true
+            } else {
+                url = foundGame.gamesInfo[0].videosUrls.mobile
+                title = foundGame.gamesInfo[0].title
+                studio = foundGame.gamesInfo[0].studio
+                calification = foundGame.gamesInfo[0].contentRaiting
+                publicationYear = foundGame.gamesInfo[0].publicationYear
+                description = foundGame.gamesInfo[0].description
+                tags = foundGame.gamesInfo[0].tags
+                galleryImages = foundGame.gamesInfo[0].galleryImages
+                
+                isGameViewActive = true
+            }
+        }
     }
 }
 

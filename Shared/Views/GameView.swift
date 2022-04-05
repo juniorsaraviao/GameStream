@@ -142,7 +142,7 @@ struct Gallery: View {
                 .font(.title)
                 .padding(.leading)
             
-            ScrollView(.horizontal) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 
                 LazyHGrid(rows: gridShape, spacing: 8) {
                     ForEach(galleryImages, id: \.self){
