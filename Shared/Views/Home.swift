@@ -65,7 +65,7 @@ struct HomeScreen : View {
             
             VStack {
                 
-                Image("appLogo").resizable().aspectRatio(contentMode: .fit).frame(width: 250).padding(.horizontal, 11)
+                Image("AppLogo").resizable().aspectRatio(contentMode: .fit).frame(width: 250).padding(.horizontal, 11)
                 
                 ScrollView(showsIndicators: false) {
                     SubModuleHome()
