@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0185E4327FE90E100986062 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0185E4227FE90E100986062 /* ProfileView.swift */; };
+		A0185E4427FE90E100986062 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0185E4227FE90E100986062 /* ProfileView.swift */; };
 		A01FD6CE27F4162400EC70C6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01FD6CD27F4162400EC70C6 /* Home.swift */; };
 		A01FD6CF27F4162400EC70C6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01FD6CD27F4162400EC70C6 /* Home.swift */; };
 		A01FD6D127F8083900EC70C6 /* GamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01FD6D027F8083900EC70C6 /* GamesView.swift */; };
@@ -31,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A0185E4227FE90E100986062 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A01FD6CD27F4162400EC70C6 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		A01FD6D027F8083900EC70C6 /* GamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesView.swift; sourceTree = "<group>"; };
 		A01FD6D627F8097900EC70C6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -74,6 +77,7 @@
 				A0B09A0A27F16C440033DB31 /* GameStreamApp.swift */,
 				A021D17127FA6F0B007262E1 /* GameView.swift */,
 				A021D17727FBFA18007262E1 /* FavoriteView.swift */,
+				A0185E4227FE90E100986062 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -238,6 +242,7 @@
 			files = (
 				A01FD6D727F8097900EC70C6 /* Model.swift in Sources */,
 				A0B09A1C27F16C470033DB31 /* ContentView.swift in Sources */,
+				A0185E4327FE90E100986062 /* ProfileView.swift in Sources */,
 				A01FD6CE27F4162400EC70C6 /* Home.swift in Sources */,
 				A021D17527FBECE5007262E1 /* SearchGame.swift in Sources */,
 				A01FD6D127F8083900EC70C6 /* GamesView.swift in Sources */,
@@ -254,6 +259,7 @@
 			files = (
 				A01FD6D827F8097900EC70C6 /* Model.swift in Sources */,
 				A0B09A1D27F16C470033DB31 /* ContentView.swift in Sources */,
+				A0185E4427FE90E100986062 /* ProfileView.swift in Sources */,
 				A01FD6CF27F4162400EC70C6 /* Home.swift in Sources */,
 				A021D17627FBECE5007262E1 /* SearchGame.swift in Sources */,
 				A01FD6D227F8083900EC70C6 /* GamesView.swift in Sources */,

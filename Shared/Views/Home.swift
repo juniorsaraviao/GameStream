@@ -15,29 +15,25 @@ struct Home: View {
         
         TabView(selection: $selectedTab) {
             
-            Text("Perfil")
-                .font(.system(size: 30, weight: .bold, design: .rounded))
+            ProfileView()
                 .tabItem {
                     Image(systemName: "person")
                     Text("Perfil")
                 }.tag(0)
             
             GamesView()
-                .font(.system(size: 30, weight: .bold, design: .rounded))
                 .tabItem {
                     Image(systemName: "gamecontroller")
                     Text("Juegos")
                 }.tag(1)
             
             HomeScreen()
-                .font(.system(size: 30, weight: .bold, design: .rounded))
                 .tabItem {
                     Image(systemName: "house")
                     Text("Inicio")
                 }.tag(2)
             
             FavoriteView()
-                .font(.system(size: 30, weight: .bold, design: .rounded))
                 .tabItem {
                     Image(systemName: "heart")
                     Text("Favoritos")
