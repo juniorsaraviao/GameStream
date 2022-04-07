@@ -66,7 +66,7 @@ struct SettingsModule : View {
     @State var isEditProfileViewActive = false
     
     var body: some View {
-        VStack(spacing: 6) {
+        VStack(spacing: 3) {
             
             Button(action: {}) {
                 HStack {
@@ -126,9 +126,9 @@ struct SettingsModule : View {
             }.background(Color("blueBot"))
              .clipShape(RoundedRectangle(cornerRadius: 1))
             
-//            NavigationLink(isActive: $isEditProfileViewActive, destination: /*EditProfileView()*/, label: {
-//                EmptyView()
-//            })
+            NavigationLink(destination: EditProfileView(), isActive: $isEditProfileViewActive, label: {
+                EmptyView()
+            })
             
         }
     }
