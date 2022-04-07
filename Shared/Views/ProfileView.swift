@@ -61,7 +61,90 @@ struct ProfileView_Previews: PreviewProvider {
 }
 
 struct SettingsModule : View {
+    
+    @State var isToggleOn = true
+    @State var isEditProfileViewActive = false
+    
     var body: some View {
-        Text("")
+        VStack {
+            
+            Button(action: {}) {
+                HStack {
+                    Text("Cuenta")
+                        .foregroundColor(.white)
+                    
+                    Spacer()
+                    
+                    Text(">")
+                        .foregroundColor(.white)
+                    
+                }.padding()
+            }.background(Color("blueBot"))
+             .clipShape(RoundedRectangle(cornerRadius: 1))
+            
+            
+            Button(action: {}) {
+                HStack {
+                    Text("Notificaciones")
+                        .foregroundColor(.white)
+                    
+                    Spacer()
+                    
+                    Toggle("", isOn: $isToggleOn)
+                    
+                }.padding()
+            }.background(Color("blueBot"))
+             .clipShape(RoundedRectangle(cornerRadius: 1))
+            
+            
+            Button(action: { isEditProfileViewActive = true }) {
+                HStack {
+                    Text("Editar perfil")
+                        .foregroundColor(.white)
+                    
+                    Spacer()
+                    
+                    Text(">")
+                        .foregroundColor(.white)
+                    
+                }.padding()
+            }.background(Color("blueBot"))
+             .clipShape(RoundedRectangle(cornerRadius: 1))
+            
+            
+            Button(action: {}) {
+                HStack {
+                    Text("Cuenta")
+                        .foregroundColor(.white)
+                    
+                    Spacer()
+                    
+                    Text(">")
+                        .foregroundColor(.white)
+                    
+                }.padding()
+            }.background(Color("blueBot"))
+             .clipShape(RoundedRectangle(cornerRadius: 1))
+            
+            
+            Button(action: {}) {
+                HStack {
+                    Text("Califica esta aplicación")
+                        .foregroundColor(.white)
+                    
+                    Spacer()
+                    
+                    Text(">")
+                        .foregroundColor(.white)
+                    
+                }.padding()
+            }.background(Color("blueBot"))
+             .clipShape(RoundedRectangle(cornerRadius: 1))
+            
+//            NavigationLink(isActive: $isEditProfileViewActive, destination: /*EditProfileView()*/, label: {
+//                EmptyView()
+//            })
+            
+        }
     }
 }
