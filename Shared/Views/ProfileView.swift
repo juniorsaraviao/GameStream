@@ -66,7 +66,7 @@ struct SettingsModule : View {
     @State var isEditProfileViewActive = false
     
     var body: some View {
-        VStack {
+        VStack(spacing: 6) {
             
             Button(action: {}) {
                 HStack {
@@ -100,21 +100,6 @@ struct SettingsModule : View {
             Button(action: { isEditProfileViewActive = true }) {
                 HStack {
                     Text("Editar perfil")
-                        .foregroundColor(.white)
-                    
-                    Spacer()
-                    
-                    Text(">")
-                        .foregroundColor(.white)
-                    
-                }.padding()
-            }.background(Color("blueBot"))
-             .clipShape(RoundedRectangle(cornerRadius: 1))
-            
-            
-            Button(action: {}) {
-                HStack {
-                    Text("Cuenta")
                         .foregroundColor(.white)
                     
                     Spacer()
