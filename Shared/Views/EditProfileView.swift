@@ -128,6 +128,12 @@ struct EditModule : View {
     }
     
     func updateData() {
-        print("Saving user data...")
+        
+        let updatingDataObject = SaveData()
+        let result = updatingDataObject.saveData(email: email, password: password, name: username)
+        
+        print("Se guardaron los datos con éxito? \(result)")
+        
+        
     }
 }
