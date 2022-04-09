@@ -73,6 +73,7 @@ struct EditModule : View {
             Divider()
                 .frame(height: 1)
                 .background(Color("Dark-Cian"))
+                .padding(.bottom, 20)
             
             Text("Contraseña")
                 .foregroundColor(.white)
@@ -90,7 +91,8 @@ struct EditModule : View {
             
             Divider()
                 .frame(height: 1)
-                .background(Color("Dark-Cian"))
+                .background(.white)
+                .padding(.bottom, 20)
             
             
             Text("Nombre")
@@ -109,7 +111,7 @@ struct EditModule : View {
             
             Divider()
                 .frame(height: 1)
-                .background(Color("Dark-Cian"))
+                .background(.white)
                 .padding(.bottom, 32)
             
             Button(action: updateData) {

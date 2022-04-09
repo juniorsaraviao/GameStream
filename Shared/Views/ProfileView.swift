@@ -34,6 +34,10 @@ struct ProfileView: View {
                         .frame(width: 118, height: 118)
                         .clipShape(Circle())
                     
+                    Text(username)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                    
                 }.padding(EdgeInsets(top: 16, leading: 0, bottom: 32, trailing: 0))
                 
                 Text("Ajustes")
@@ -43,6 +47,8 @@ struct ProfileView: View {
                     .padding(.leading, 18)
                 
                 SettingsModule()
+                
+                Spacer()
             }
             
             
