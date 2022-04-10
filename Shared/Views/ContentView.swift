@@ -20,7 +20,7 @@ struct ContentView: View {
                     InicioYRegistroView()
                 }
             }.navigationBarHidden(true)
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
