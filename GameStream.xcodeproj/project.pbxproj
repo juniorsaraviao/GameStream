@@ -17,6 +17,8 @@
 		A0185E50280133C700986062 /* SUImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0185E4E280133C700986062 /* SUImagePickerView.swift */; };
 		A0185E53280397BE00986062 /* PointsSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0185E52280397BE00986062 /* PointsSystem.swift */; };
 		A0185E54280397BE00986062 /* PointsSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0185E52280397BE00986062 /* PointsSystem.swift */; };
+		A0185E562803995200986062 /* Assets2x3x.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0185E552803995200986062 /* Assets2x3x.swift */; };
+		A0185E572803995200986062 /* Assets2x3x.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0185E552803995200986062 /* Assets2x3x.swift */; };
 		A01FD6CE27F4162400EC70C6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01FD6CD27F4162400EC70C6 /* Home.swift */; };
 		A01FD6CF27F4162400EC70C6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01FD6CD27F4162400EC70C6 /* Home.swift */; };
 		A01FD6D127F8083900EC70C6 /* GamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01FD6D027F8083900EC70C6 /* GamesView.swift */; };
@@ -47,6 +49,7 @@
 		A0185E4E280133C700986062 /* SUImagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SUImagePickerView.swift; path = "../../../../Downloads/SUImagePickerView-master/SUImagePickerView/SUImagePickerView.swift"; sourceTree = "<group>"; };
 		A0185E512802801E00986062 /* GameStream--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GameStream--iOS--Info.plist"; sourceTree = "<group>"; };
 		A0185E52280397BE00986062 /* PointsSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsSystem.swift; sourceTree = "<group>"; };
+		A0185E552803995200986062 /* Assets2x3x.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets2x3x.swift; sourceTree = "<group>"; };
 		A01FD6CD27F4162400EC70C6 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		A01FD6D027F8083900EC70C6 /* GamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesView.swift; sourceTree = "<group>"; };
 		A01FD6D627F8097900EC70C6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 				A0185E4227FE90E100986062 /* ProfileView.swift */,
 				A0185E4527FE988900986062 /* EditProfileView.swift */,
 				A0185E52280397BE00986062 /* PointsSystem.swift */,
+				A0185E552803995200986062 /* Assets2x3x.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -263,6 +267,7 @@
 				A0185E492801265000986062 /* SaveData.swift in Sources */,
 				A0185E4327FE90E100986062 /* ProfileView.swift in Sources */,
 				A0185E4627FE988900986062 /* EditProfileView.swift in Sources */,
+				A0185E562803995200986062 /* Assets2x3x.swift in Sources */,
 				A0185E53280397BE00986062 /* PointsSystem.swift in Sources */,
 				A0185E4F280133C700986062 /* SUImagePickerView.swift in Sources */,
 				A01FD6CE27F4162400EC70C6 /* Home.swift in Sources */,
@@ -284,6 +289,7 @@
 				A0185E4A2801265000986062 /* SaveData.swift in Sources */,
 				A0185E4427FE90E100986062 /* ProfileView.swift in Sources */,
 				A0185E4727FE988900986062 /* EditProfileView.swift in Sources */,
+				A0185E572803995200986062 /* Assets2x3x.swift in Sources */,
 				A0185E54280397BE00986062 /* PointsSystem.swift in Sources */,
 				A0185E50280133C700986062 /* SUImagePickerView.swift in Sources */,
 				A01FD6CF27F4162400EC70C6 /* Home.swift in Sources */,
