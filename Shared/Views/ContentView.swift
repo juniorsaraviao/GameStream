@@ -16,6 +16,7 @@ struct ContentView: View {
                 
                 VStack {
                     Image("AppLogo").resizable().aspectRatio(contentMode: .fit).frame(width: 250).padding(.bottom, 42)
+                        .offset(x: 0, y: 10)
                     
                     InicioYRegistroView()
                 }
@@ -262,9 +263,8 @@ struct RegistroView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        Image("pantalla2").resizable()
-        
         ContentView()
+            .previewDevice("iPad Pro (11-inch) (3rd generation)")
     }
 }
 
