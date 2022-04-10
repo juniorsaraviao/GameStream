@@ -9,11 +9,21 @@ import SwiftUI
 
 struct OffsetPosition: View {
     var body: some View {
+        // GR
+        GeometryReader(content: { geometry in
+        
         VStack {
-            Offsets()
             
-            Positions()
-        }
+            Image("platzi")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: geometry.size.width/2, height: geometry.size.height/3)
+            
+//            Offsets()
+//
+//            Positions()
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        })
     }
 }
 
