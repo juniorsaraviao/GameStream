@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     
     @State var username: String = "Lorem"
+    @State var profileImage : UIImage = UIImage(named: "perfilEjemplo")!
     
     var body: some View {
         ZStack {
@@ -28,7 +29,7 @@ struct ProfileView: View {
                 
                 VStack {
                     
-                    Image("perfilEjemplo")
+                    Image(uiImage: profileImage)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 118, height: 118)
@@ -54,9 +55,33 @@ struct ProfileView: View {
             
         }.onAppear(
             perform: {
+                
+                if returnUiImage(named: "profilePhoto") != nil {
+                    profileImage = returnUiImage(named: "profilePhoto")!
+                } else {
+                    print("File not found")
+                }
+                
                 print("Review username data")
+                
+                if UserDefaults.standard.object(forKey: "userData") != nil {
+                    username = UserDefaults.standard.stringArray(forKey: "userData")![2]
+                }else {
+                    print("Nothing saved")
+                }
             }
         )
+    }
+    
+    func returnUiImage(named: String) -> UIImage? {
+        
+        if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
+            
+            return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
+        } else {
+            return nil
+        }
+            
     }
 }
 

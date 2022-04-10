@@ -43,6 +43,7 @@
 		A0185E4527FE988900986062 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		A0185E482801265000986062 /* SaveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveData.swift; sourceTree = "<group>"; };
 		A0185E4E280133C700986062 /* SUImagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SUImagePickerView.swift; path = "../../../../Downloads/SUImagePickerView-master/SUImagePickerView/SUImagePickerView.swift"; sourceTree = "<group>"; };
+		A0185E512802801E00986062 /* GameStream--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GameStream--iOS--Info.plist"; sourceTree = "<group>"; };
 		A01FD6CD27F4162400EC70C6 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		A01FD6D027F8083900EC70C6 /* GamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesView.swift; sourceTree = "<group>"; };
 		A01FD6D627F8097900EC70C6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 		A0B09A0427F16C440033DB31 = {
 			isa = PBXGroup;
 			children = (
+				A0185E512802801E00986062 /* GameStream--iOS--Info.plist */,
 				A0B09A0927F16C440033DB31 /* Shared */,
 				A0B09A1827F16C470033DB31 /* macOS */,
 				A0B09A1227F16C470033DB31 /* Products */,
@@ -410,6 +412,8 @@
 				DEVELOPMENT_TEAM = KQYDJNLD47;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "GameStream--iOS--Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Se utiliza cámara para tomar foto de perfil";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -440,6 +444,8 @@
 				DEVELOPMENT_TEAM = KQYDJNLD47;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "GameStream--iOS--Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Se utiliza cámara para tomar foto de perfil";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
