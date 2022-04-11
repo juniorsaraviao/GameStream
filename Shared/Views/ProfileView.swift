@@ -70,7 +70,9 @@ struct ProfileView: View {
                     print("Nothing saved")
                 }
             }
-        )
+        ).onDisappear(perform: {
+            print("onDisappear")
+        })
     }
     
     func returnUiImage(named: String) -> UIImage? {
