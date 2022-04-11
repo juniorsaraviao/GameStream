@@ -78,6 +78,11 @@ struct SubModuleHome : View {
     @State var lookupText = ""
     @State var isGameInfoEmpty = false
     
+    var device = UIDevice.current.model
+    @State var rectangleWidth: Double = 160
+    @State var rectangleHeight: Double = 90
+    @State var imageSize: Double = 42
+    
     @ObservedObject var foundGame = SearchGame()
     @State var isGameViewActive = false
     
@@ -89,6 +94,7 @@ struct SubModuleHome : View {
     @State var description: String = ""
     @State var tags: [String] = [String]()
     @State var galleryImages: [String] = [String]()
+    
     
     var body: some View {
         
@@ -165,12 +171,12 @@ struct SubModuleHome : View {
                         ZStack {
                             RoundedRectangle(cornerRadius: 8)
                                 .fill(Color("blueBot"))
-                                .frame(width: 160, height: 90)
+                                .frame(width: rectangleWidth, height: rectangleHeight)
                             
                             Image("FPS")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 42, height: 42)
+                                .frame(width: imageSize, height: imageSize)
                         }
                     }
                     
@@ -178,12 +184,12 @@ struct SubModuleHome : View {
                         ZStack {
                             RoundedRectangle(cornerRadius: 8)
                                 .fill(Color("blueBot"))
-                                .frame(width: 160, height: 90)
+                                .frame(width: rectangleWidth, height: rectangleHeight)
                             
                             Image("RPG")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 42, height: 42)
+                                .frame(width: imageSize, height: imageSize)
                         }
                     }
                     
@@ -191,12 +197,12 @@ struct SubModuleHome : View {
                         ZStack {
                             RoundedRectangle(cornerRadius: 8)
                                 .fill(Color("blueBot"))
-                                .frame(width: 160, height: 90)
+                                .frame(width: rectangleWidth, height: rectangleHeight)
                             
                             Image("open-world")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 42, height: 42)
+                                .frame(width: imageSize, height: imageSize)
                         }
                     }
                 }
@@ -287,6 +293,13 @@ struct SubModuleHome : View {
                 }
             }
         }
+        .onAppear(perform: {
+            if device == "iPad" {
+                rectangleWidth = device != "iPad" ? 160 : 320
+                rectangleHeight = device != "iPad" ? 90 : 180
+                imageSize = device != "iPad" ? 42 : 84
+            }
+        })
         
         NavigationLink(destination: GameView(url: url, title: title, studio: studio, calification: calification, publicationYear: publicationYear, description: description, tags: tags, galleryImages: galleryImages), isActive: $isGameViewActive) {
             EmptyView()
@@ -321,5 +334,6 @@ struct SubModuleHome : View {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Home()
+            .previewDevice("iPad Pro (9.7-inch)")
     }
 }
