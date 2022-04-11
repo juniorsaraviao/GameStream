@@ -14,9 +14,18 @@ struct GameStreamApp: App {
         // Punto de partida de la app
     }
     
+    @Environment(\.scenePhase) var scenePhase
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+        }.onChange(of: scenePhase) { phase in
+            print(phase)
+            
+            if phase == .inactive {
+                print("The app is inactive, data will be saved...")
+            }
+            
         }
     }
 }
