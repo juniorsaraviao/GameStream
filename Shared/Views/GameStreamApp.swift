@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct GameStreamApp: App {
+    
+    init() {
+        // Punto de partida de la app
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
